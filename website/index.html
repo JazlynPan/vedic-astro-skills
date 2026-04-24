@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🔱 吠陀占星 · Vedic Astrology · Jyotish</title>
+  <meta name="description" content="五千年古印度吠陀占星智慧，KN Rao 正統體系。星盤試算、Nakshatra 星宿、大運時序、Yoga 吉祥組合。" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Serif+TC:wght@300;400;700&family=IM+Fell+English:ital@0;1&family=Tiro+Devanagari+Sanskrit&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <!-- ─── MANDALA CANVAS ─── -->
+  <canvas id="mandalaCanvas"></canvas>
+  <canvas id="starCanvas"></canvas>
+
+  <!-- ─── LOADER ─── -->
+  <div id="pageLoader">
+    <div class="loader-inner">
+      <div class="loader-mandala">
+        <svg viewBox="0 0 200 200" width="120" height="120">
+          <g transform="translate(100,100)">
+            <circle r="90" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
+            <circle r="70" fill="none" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+            <circle r="50" fill="none" stroke="rgba(201,168,76,0.35)" stroke-width="1"/>
+            <circle r="30" fill="none" stroke="rgba(201,168,76,0.5)" stroke-width="2"/>
+            <text y="8" text-anchor="middle" fill="#c9a84c" font-size="20" font-family="serif">🔱</text>
+          </g>
+        </svg>
+      </div>
+      <p class="loader-text">ॐ नमः शिवाय</p>
+    </div>
+  </div>
+
+  <!-- ─── NAV ─── -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#hero">
+        <span class="nav-logo-glyph">🔱</span>
+        <span>吠陀占星</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">關於吠陀</a></li>
+        <li><a href="#planets">九曜行星</a></li>
+        <li><a href="#nakshatras">27 星宿</a></li>
+        <li><a href="#houses">宮位系統</a></li>
+        <li><a href="#dashas">大運時序</a></li>
+        <li><a href="#yogas">Yogas</a></li>
+        <li><a href="#calculator">星盤試算</a></li>
+        <li><a href="#reading">解盤諮詢</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero">
+    <div class="hero-mandala-wrap">
+      <div class="mandala-ring ring1"></div>
+      <div class="mandala-ring ring2"></div>
+      <div class="mandala-ring ring3"></div>
+      <div class="mandala-ring ring4"></div>
+      <div class="mandala-center-glow"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-sanskrit animate-glow">ॐ ग्रहाणां चरणं वन्दे</p>
+      <div class="hero-title-wrap">
+        <h1 class="hero-title">吠陀占星</h1>
+        <p class="hero-subtitle">Vedic Astrology · Jyotish</p>
+        <p class="hero-tagline">命運的天文地圖</p>
+      </div>
+      <p class="hero-sub">
+        源自五千年古印度智慧 · KN Rao 正統體系<br />
+        27 Nakshatra · 9 Graha · 12 Bhava · 120年大運
+      </p>
+      <div class="hero-btns">
+        <a class="btn btn-primary" href="#calculator">
+          <span>✨</span> 免費試算星盤
+        </a>
+        <a class="btn btn-ghost" href="#about">探索吠陀智慧</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">5000+</span>
+          <span class="hero-stat-label">年歷史</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">27</span>
+          <span class="hero-stat-label">Nakshatra 星宿</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">120</span>
+          <span class="hero-stat-label">年大運週期</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>向下探索</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─── -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-badge">JYOTISH · 光之科學</p>
+        <h2>什麼是吠陀占星？</h2>
+        <p class="section-desc">
+          吠陀占星（Jyotish）是印度六大輔助吠陀學之一，意為「光的科學」。<br />
+          透過出生那一刻的星象，揭示靈魂在此生的業力藍圖。
+        </p>
+      </div>
+      <div class="about-grid">
+        <div class="about-card" data-aos>
+          <div class="about-icon">🌙</div>
+          <h3>月亮為主</h3>
+          <p>以<strong>月亮星座（Rashi）</strong>與<strong>上升星座（Lagna）</strong>為分析核心，更精準反映心理特質與靈魂本質。</p>
+        </div>
+        <div class="about-card" data-aos>
+          <div class="about-icon">🪐</div>
+          <h3>九大行星</h3>
+          <p>以九曜（Navagraha）為基礎：太陽、月亮、火星、水星、木星、金星、土星，以及北交點（Rahu）和南交點（Ketu）。</p>
+        </div>
+        <div class="about-card" data-aos>
+          <div class="about-icon">⭐</div>
+          <h3>27 Nakshatra</h3>
+          <p>月亮黃道被分為 27 個 Nakshatra（星宿），每個跨越 13°20'，是吠陀占星中最精細的時間定位系統。</p>
+        </div>
+        <div class="about-card" data-aos>
+          <div class="about-icon">📊</div>
+          <h3>精密數學</h3>
+          <p>採用恆星黃道（Sidereal Zodiac），結合 Ashtakavarga 點數系統與 Shadbala 六力系統，提供客觀量化分析。</p>
+        </div>
+        <div class="about-card" data-aos>
+          <div class="about-icon">⏳</div>
+          <h3>大運時序</h3>
+          <p>獨特的 Vimshottari Dasha（120年週期）大運系統，精確預測人生各階段的主題與轉機。</p>
+        </div>
+        <div class="about-card" data-aos>
+          <div class="about-icon">🔯</div>
+          <h3>Yogas 吉祥組合</h3>
+          <p>數百種特殊行星組合（Yogas），包含財富瑜伽、帝王瑜伽、精神瑜伽等，指示命盤的特殊潛力。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PLANETS ─── -->
+  <section id="planets" class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-badge">NAVAGRAHA · 九曜</p>
+        <h2>九大行星奧義</h2>
+        <p class="section-desc">每顆行星掌管人生特定的領域與能量，點擊行星查看詳情</p>
+      </div>
+      <div class="planets-orrery" id="planetsOrrery">
+        <!-- SVG Orrery -->
+      </div>
+      <div class="planets-grid" id="planetsGrid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── NAKSHATRAS ─── -->
+  <section id="nakshatras" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-badge">NAKSHATRA · 27 星宿</p>
+        <h2>二十七星宿</h2>
+        <p class="section-desc">月亮的27個居所，每個星宿擁有獨特的神話、象徵與人生主題</p>
+      </div>
+      <div class="nakshatra-wheel-wrap">
+        <canvas id="nakshatraCanvas" width="500" height="500"></canvas>
+        <div class="nakshatra-info-panel" id="nakshatraInfo">
+          <p class="nakshatra-hint">點擊星宿扇形查看詳情</p>
+        </div>
+      </div>
+      <div class="nakshatra-grid" id="nakshatraGrid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── HOUSES ─── -->
+  <section id="houses" class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-badge">BHAVA · 宮位</p>
+        <h2>十二宮位系統</h2>
+        <p class="section-desc">十二宮位各司其職，構成人生的完整地圖</p>
+      </div>
+      <div class="houses-wheel-wrapper">
+        <div class="houses-wheel" id="housesWheel"></div>
+        <div class="house-info-panel" id="houseInfoPanel">
+          <p class="house-hint">點擊宮位查看詳情</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DASHAS ─── -->
+  <section id="dashas" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-badge">VIMSHOTTARI · 大運</p>
+        <h2>120 年大運時序</h2>
+        <p class="section-desc">Vimshottari Dasha 是吠陀占星最精準的時間預測工具</p>
+      </div>
+      <div class="dasha-timeline" id="dashaTimeline">
+        <!-- Populated by JS -->
+      </div>
+      <p class="dasha-note">
+        ※ 每段大運由主星（Maha Dasha）→副星（Antar Dasha）→小運（Pratyantar Dasha）三層交疊，精確到月份。
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── YOGAS ─── -->
+  <section id="yogas" class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-badge">YOGA · 吉祥組合</p>
+        <h2>重要行星瑜伽</h2>
+        <p class="section-desc">特殊的行星組合形成強大的命運模式，影響整個人生走向</p>
+      </div>
+      <div class="yogas-filter" id="yogasFilter">
+        <button class="yoga-filter-btn active" data-cat="all">全部</button>
+        <button class="yoga-filter-btn" data-cat="wealth">財富</button>
+        <button class="yoga-filter-btn" data-cat="power">權力</button>
+        <button class="yoga-filter-btn" data-cat="spiritual">靈性</button>
+        <button class="yoga-filter-btn" data-cat="relationship">感情</button>
+      </div>
+      <div class="yogas-grid" id="yogasGrid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CALCULATOR ─── -->
+  <section id="calculator" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-badge">KUNDALI · 星盤試算</p>
+        <h2>免費本命星盤試算</h2>
+        <p class="section-desc">輸入出生資料，即時計算您的吠陀本命盤核心要素</p>
+      </div>
+      <div class="calc-wrapper">
+        <form class="calc-form" id="calcForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="birthDate">出生日期</label>
+              <input type="date" id="birthDate" required />
+            </div>
+            <div class="form-group">
+              <label for="birthTime">出生時間</label>
+              <input type="time" id="birthTime" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="birthLat">出生緯度</label>
+              <input type="number" id="birthLat" step="0.0001" placeholder="例：25.0478 (台北)" required />
+            </div>
+            <div class="form-group">
+              <label for="birthLng">出生經度</label>
+              <input type="number" id="birthLng" step="0.0001" placeholder="例：121.5319 (台北)" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="timezone">時區 (UTC±)</label>
+              <select id="timezone">
+                <option value="5.5">UTC+5:30 (印度 IST)</option>
+                <option value="8" selected>UTC+8 (台灣/中國/香港)</option>
+                <option value="9">UTC+9 (日本/韓國)</option>
+                <option value="0">UTC+0 (英國 GMT)</option>
+                <option value="-5">UTC-5 (美東 EST)</option>
+                <option value="-8">UTC-8 (美西 PST)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="gender">性別</label>
+              <select id="gender">
+                <option value="M">男</option>
+                <option value="F">女</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-cities">
+            <p class="form-cities-label">快速選擇城市：</p>
+            <div class="city-chips">
+              <button type="button" class="city-chip" data-lat="25.0478" data-lng="121.5319" data-tz="8">🇹🇼 台北</button>
+              <button type="button" class="city-chip" data-lat="31.2304" data-lng="121.4737" data-tz="8">🇨🇳 上海</button>
+              <button type="button" class="city-chip" data-lat="22.3193" data-lng="114.1694" data-tz="8">🇭🇰 香港</button>
+              <button type="button" class="city-chip" data-lat="28.6139" data-lng="77.2090" data-tz="5.5">🇮🇳 新德里</button>
+              <button type="button" class="city-chip" data-lat="19.0760" data-lng="72.8777" data-tz="5.5">🇮🇳 孟買</button>
+              <button type="button" class="city-chip" data-lat="13.0827" data-lng="80.2707" data-tz="5.5">🇮🇳 Chennai</button>
+              <button type="button" class="city-chip" data-lat="35.6762" data-lng="139.6503" data-tz="9">🇯🇵 東京</button>
+              <button type="button" class="city-chip" data-lat="51.5074" data-lng="-0.1278" data-tz="0">🇬🇧 倫敦</button>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            🔱 計算我的星盤
+          </button>
+        </form>
+
+        <div class="calc-result" id="calcResult" style="display:none">
+          <div class="result-header">
+            <h3>您的吠陀星盤概覽</h3>
+            <button class="result-close" id="resultClose">✕</button>
+          </div>
+          <div class="result-body" id="resultBody">
+            <!-- Populated by JS -->
+          </div>
+          <div class="result-cta">
+            <p>想要完整深度解盤？</p>
+            <a href="#reading" class="btn btn-primary">申請專業諮詢</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── READING ─── -->
+  <section id="reading" class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-badge">JYOTISH CONSULTATION · 解盤諮詢</p>
+        <h2>專業星盤解讀服務</h2>
+        <p class="section-desc">由 AI 輔助的 KN Rao 體系深度分析，結合 P1-P13 命理引擎</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" data-aos>
+          <div class="service-icon">🔍</div>
+          <h3>基礎本命盤</h3>
+          <ul>
+            <li>上升星座 + 月亮星座分析</li>
+            <li>九大行星位置解讀</li>
+            <li>Nakshatra 月宿分析</li>
+            <li>當前大運主題</li>
+          </ul>
+          <a href="#readingForm" class="btn btn-ghost btn-sm">了解更多</a>
+        </div>
+        <div class="service-card service-featured" data-aos>
+          <div class="service-badge">最受歡迎</div>
+          <div class="service-icon">🏛️</div>
+          <h3>完整星盤審計</h3>
+          <ul>
+            <li>P1-P13 行星完整審計</li>
+            <li>Ashtakavarga 數學校驗</li>
+            <li>D9 納婆曼薩校準</li>
+            <li>27 Nakshatra 深度解讀</li>
+            <li>Yoga 吉祥組合分析</li>
+            <li>未來3年時機預測</li>
+          </ul>
+          <a href="#readingForm" class="btn btn-primary btn-sm">立即申請</a>
+        </div>
+        <div class="service-card" data-aos>
+          <div class="service-icon">💼</div>
+          <h3>事業時機分析</h3>
+          <ul>
+            <li>第10宮職業方向</li>
+            <li>事業大運時機</li>
+            <li>Raja Yoga 評估</li>
+            <li>財富潛力分析</li>
+          </ul>
+          <a href="#readingForm" class="btn btn-ghost btn-sm">了解更多</a>
+        </div>
+      </div>
+
+      <div class="reading-form-wrapper" id="readingForm">
+        <h3>預約解盤諮詢</h3>
+        <form class="reading-form" id="consultForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>姓名 / Name</label>
+              <input type="text" placeholder="您的稱呼" required />
+            </div>
+            <div class="form-group">
+              <label>電子郵件 / Email</label>
+              <input type="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>出生日期時間</label>
+              <input type="datetime-local" required />
+            </div>
+            <div class="form-group">
+              <label>出生城市</label>
+              <input type="text" placeholder="例：台北、上海、Mumbai" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>諮詢主題</label>
+            <select>
+              <option>完整星盤審計 (P1-P13)</option>
+              <option>事業方向與時機</option>
+              <option>感情運勢分析</option>
+              <option>Nakshatra 月宿解讀</option>
+              <option>流年大運解讀</option>
+              <option>其他（請在備註說明）</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>想詢問的問題（選填）</label>
+            <textarea rows="4" placeholder="請描述您最想了解的人生課題或具體問題..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">📿 送出諮詢申請</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <p class="footer-logo">🔱 吠陀占星</p>
+          <p class="footer-tagline">Vedic Astrology · KN Rao 體系</p>
+          <p class="footer-desc">
+            以嚴謹的科學態度傳承五千年古老智慧，<br />
+            為現代人提供清晰的命運導航。
+          </p>
+          <div class="footer-om">ॐ</div>
+        </div>
+        <div class="footer-links">
+          <h4>快速導覽</h4>
+          <ul>
+            <li><a href="#about">關於吠陀占星</a></li>
+            <li><a href="#planets">九大行星</a></li>
+            <li><a href="#nakshatras">27 Nakshatra</a></li>
+            <li><a href="#houses">十二宮位</a></li>
+            <li><a href="#dashas">大運系統</a></li>
+            <li><a href="#yogas">Yoga 組合</a></li>
+            <li><a href="#calculator">星盤試算</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>吠陀知識</h4>
+          <ul>
+            <li><a href="#">Parashari 體系介紹</a></li>
+            <li><a href="#">Ashtakavarga 解說</a></li>
+            <li><a href="#">27 Nakshatra 完整介紹</a></li>
+            <li><a href="#">D9 納婆曼薩詳解</a></li>
+            <li><a href="#">Raja Yoga 帝王瑜伽</a></li>
+            <li><a href="#">Dhana Yoga 財富瑜伽</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 吠陀占星 Vedic Astrology · 基於 KN Rao 正統 Parashari 體系</p>
+        <p class="footer-disclaimer">本站提供教育參考資訊，不構成任何法律、醫療或財務建議。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/stars.js"></script>
+  <script src="js/mandala.js"></script>
+  <script src="js/planets.js"></script>
+  <script src="js/nakshatras.js"></script>
+  <script src="js/houses.js"></script>
+  <script src="js/dashas.js"></script>
+  <script src="js/yogas.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
