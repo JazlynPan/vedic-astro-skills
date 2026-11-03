@@ -106,3 +106,9 @@ vedic-astro-skills/
 ## License
 
 MIT
+
+## Codex Cloud（台灣繁體中文）
+
+保留上述三個原有模組，另於 `.agents/skills/` 安裝官方 v8.0 的八個完整 Codex Skills，並整合 Codex Patch v1.3.0 的十一個模組。新任務依根目錄 `AGENTS.md` 路由，以 `bash scripts/codex_setup.sh` 重建並驗證 Linux 排盤環境。
+
+安裝版本、清單、測試、更新與持續生效限制見 [Codex Cloud 安裝紀錄](docs/CODEX_CLOUD_TW.md)。新增官方內容依 [上游授權](vendor/vedic-upstream/LICENSE) 與 [商用限制](vendor/vedic-upstream/COMMERCIAL_NOTICE) 適用，不包含在上述既有 MIT 授權範圍內。個人出生資料與報告請只放在不追蹤的 `private/` 目錄。

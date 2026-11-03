@@ -2,3 +2,19 @@
 *.txt
 __pycache__/
 .DS_Store
+
+# Rebuildable Linux calculation environment and private client artifacts
+venv/
+.venv/
+vedic-calc-env/
+private/
+reports/
+output/
+outputs/
+user_context.md
+*.log
+.env
+.env.*
+.pytest_cache/
+!requirements*.txt
+!**/requirements.txt

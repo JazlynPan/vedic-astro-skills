@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vedic Core Analysis"
+  short_description: "Run a full Vedic astrology life and planet audit"
+  default_prompt: "Use $vedic-core to perform a complete analysis of my structured chart data."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vedic Calculator"
+  short_description: "Calculate a complete Vedic chart from birth data"
+  default_prompt: "Use $vedic-calculator to calculate my Vedic chart from birth details."

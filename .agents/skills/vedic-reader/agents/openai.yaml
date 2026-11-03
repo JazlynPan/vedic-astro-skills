@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vedic Chart Reader"
+  short_description: "Extract and validate Vedic astrology chart data"
+  default_prompt: "Use $vedic-reader to extract and validate this Vedic chart."
