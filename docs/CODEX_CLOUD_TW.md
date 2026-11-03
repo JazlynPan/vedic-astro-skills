@@ -70,3 +70,7 @@ Skills、指令、補丁、安裝腳本與版本鎖都提交到這個 PR 分支�
 尚未驗證：其他 Python 版本／架構、真實個案準確率、平台全新任務是否實際顯示全部 Skills。計算測試通過只證明安裝和程式算例通過，不能證明占星預測具有科學效度。初次預設沙箱連線無法連到 proxy，改用此環境允許的網路權限後已正常取得來源及套件；無尚未修復的安裝／計算失敗。
 
 `git diff --check` 對上游原有行尾空白提出警告；為維持官方檔案逐位元一致，保留這些空白。自行新增的腳本與說明已另行通過空白檢查。
+
+## GitHub 交付阻礙
+
+本機雲端分支 `codex/install-vedic-skills-tw` 已完成提交；推送時 GitHub 回傳 HTTP 403（Permission denied）。改用已連接 GitHub 工具建立同名遠端分支，也回傳 HTTP 403：`Resource not accessible by integration`。因此遠端分支與 Pull Request 尚未建立，`main` 未被修改。這是 GitHub 整合寫入權限不足，並非計算安裝失敗；需要讓目前使用的 GitHub 連線對 `JazlynPan/vedic-astro-skills` 具有 Contents 與 Pull requests 寫入權限後，才能繼續推送及開 PR。已在雲端工作區另存可攜的 Git bundle 與包含二進位星曆的 patch，保留完整待審查成果。
