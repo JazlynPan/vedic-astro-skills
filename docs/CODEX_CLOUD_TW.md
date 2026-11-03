@@ -5,7 +5,7 @@
 - 目標基準：`JazlynPan/vedic-astro-skills`，`763afbdb3475d0a53b278d789f40580ff3618b30`。
 - 官方來源：<https://github.com/CNWU16/vedic-astro-skills>。
 - 官方最新版（2026-11-03 取得）：`e33bf00c90e026f67bad474576e822b08fb56940`，Suite v8.0、Codex Patch v1.3.0。
-- 原有 `core/`、`career/`、`love/`、Claude commands、`scripts/report_builder.py` 與根目錄 MIT 授權原樣保留。
+- 依操作者後續明確指示，以最新版取代舊倉庫內容：移除 `core/`、`career/`、`love/`、舊 Claude commands 與 `scripts/report_builder.py`，README 改為目前版本。根目錄改放官方 AGPL 授權與 COMMERCIAL_NOTICE，不再沿用舊版 MIT 宣告。
 - 新的官方 Codex 發行面放在 `.agents/skills/`，完整保留來源內的所有檔案，包含 scripts、resources、測試、三個二進位星曆檔與 `agents/openai.yaml`。此版來源未設 `references/`，沒有省略該目錄；未來來源內新增的子目錄也由同步程式完整帶入。
 
 | Skill | 用途 | 官方檔案數 |
@@ -23,7 +23,7 @@
 
 官方 `codex-patch/` 的路由器、模組與說明完整保存於 `vendor/vedic-upstream/codex-patch/`。執行副本放在專案 `.codex/`，僅將指向全域 `~/.codex/` 的路徑改為專案 `.codex/`。完整路由器合併進根目錄 `AGENTS.md` 的具名管理區塊，接續台灣規則；既有內容保留。若同層存在 `AGENTS.override.md`，同步程式也保留其原文並合併區塊。本次目標倉庫沒有這兩個既有檔案。
 
-`vedic-upstream.lock.json` 記錄來源 commit 與 122 個發行／授權／補丁檔案的 SHA-256，另記指令管理區塊雜湊。沒有安裝非官方八模組清單內的 Pro。
+`vedic-upstream.lock.json` 記錄來源 commit 與 124 個發行／授權／補丁檔案的 SHA-256，另記指令管理區塊雜湊。沒有安裝非官方八模組清單內的 Pro。
 
 ## 雲端持續生效方式
 
@@ -50,7 +50,7 @@ Skills、指令、補丁、安裝腳本與版本鎖都提交到這個 PR 分支�
 | 首次官方 check_env.py | 缺少 pysweph、PyJHora；已由官方 setup_env.py 修復 |
 | 官方 setup_env.py 安裝及重跑 | 通過；內建 SAV=337 |
 | 官方 check_env.py 修復後 | 通過；SAV=337、Lagna=Virgo、DK_7K=Mercury |
-| 完整性 | 八個 Skills、八份 agents 設定、十一個模組、122 個檔案雜湊與路由區塊通過 |
+| 完整性 | 八個 Skills、八份 agents 設定、十一個模組、124 個檔案雜湊與路由區塊通過 |
 | 星曆 | engine 與 PyJHora 三個 .se1 檔齊全且逐位元相同 |
 | 額外最小測試 | 官方 Gandhi 測試 SAV=337 |
 | 官方 engine 精度回歸 | 11 項全數通過，含秒數、DST、D9／Lagna 一致性、極圈與失敗回報 |
@@ -63,7 +63,7 @@ Skills、指令、補丁、安裝腳本與版本鎖都提交到這個 PR 分支�
 
 ## 授權、個資與限制
 
-根目錄既有 `LICENSE` 保留；新引入的官方內容不是重新授權為 MIT。官方 AGPL-3.0 全文及額外 `COMMERCIAL_NOTICE` 保存在 `vendor/vedic-upstream/`，其適用範圍包含官方 Skills、prompt、resources、補丁原文與衍生路由器／模組。請遵循官方商用限制與歸屬；本文件不代替法律意見。
+根目錄及 `vendor/vedic-upstream/` 保存官方 AGPL-3.0 全文與額外 `COMMERCIAL_NOTICE`，官方內容不是重新授權為 MIT，其適用範圍包含官方 Skills、prompt、resources、補丁原文與衍生路由器／模組。請遵循官方商用限制與歸屬；本文件不代替法律意見。
 
 台灣繁中、首次術語中英對照、歷史 DST、分盤穩定性、先鎖定獨立分析再驗證、保留反證及不將占星當科學事實，均已納入專案指令。個人資料與報告只放 `private/`；忽略規則已加入並驗證，不提交虛擬環境或私人資料。測試只使用官方既有測試與合成曆法時間，未使用任何使用者出生資料。
 
@@ -75,4 +75,4 @@ Skills、指令、補丁、安裝腳本與版本鎖都提交到這個 PR 分支�
 
 GitHub Connector 安裝與倉庫授權完成後，重新檢查已能列出 JazlynPan 的 App 安裝，並已成功將 `codex/install-vedic-skills-tw` 推送到目標倉庫。先前 GitHub HTTP 403 的寫入阻礙已解除。
 
-授權修復後再次執行 `bash scripts/codex_setup.sh`，官方環境檢查、SAV=337、122 個檔案雜湊及台北／上海歷史 DST 測試均通過；重新核對官方 main 仍為本紀錄鎖定的最新版 commit。交付透過此分支的 Pull Request 審查，不直接更新或合併 main。
+授權修復後再次執行 `bash scripts/codex_setup.sh`，官方環境檢查、SAV=337、124 個檔案雜湊及台北／上海歷史 DST 測試均通過；重新核對官方 main 仍為本紀錄鎖定的最新版 commit。操作者後續明確授權以最新版替換舊倉庫並更新 main，因此本次將更新 PR #2，驗證後合併；不需要重寫 Git 歷史。私人命盤檔案不在 PR 或部署範圍內。

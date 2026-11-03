@@ -42,6 +42,7 @@ def install(source):
                 payload[f'{target}/{p.relative_to(folder).as_posix()}'] = p.read_bytes()
     for name in ('LICENSE', 'COMMERCIAL_NOTICE'):
         payload[f'vendor/vedic-upstream/{name}'] = (source / name).read_bytes()
+        payload[name] = (source / name).read_bytes()
     for p in patch.glob('vedic_*.md'):
         payload[f'.codex/{p.name}'] = p.read_text().replace('~/.codex/', '.codex/').encode()
     router = (patch / 'AGENTS.md').read_text().replace('~/.codex/', '.codex/')

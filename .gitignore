@@ -1,5 +1,4 @@
 *.pdf
-*.txt
 __pycache__/
 .DS_Store
 
@@ -16,5 +15,7 @@ user_context.md
 .env
 .env.*
 .pytest_cache/
-!requirements*.txt
-!**/requirements.txt
+# Unstructured client exports also stay private; dependency files remain tracked.
+extracted_text.txt
+chart.json
+structured_data.md

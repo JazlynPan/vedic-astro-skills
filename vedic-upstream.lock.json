@@ -121,6 +121,8 @@
     ".codex/vedic_rectifier_question_design.md": "0ae32149ad2a2adda3fe9e9918bd6d55bc8133397da9d4b48b083f1bbbbaa5a6",
     ".codex/vedic_rectifier_settlement.md": "afd4df1fd359d2f6dec3332cc1da76bf3b720ce17142ed93f3467da6e1c32c41",
     ".codex/vedic_uc_firewall.md": "caa164a990062f76355d03e884fc3fb1ea2821b9c2a0083253f7352fff326f47",
+    "COMMERCIAL_NOTICE": "9d98134c60234dafadc5445fd5647c915398011a79d371451d92edf0a6178cb4",
+    "LICENSE": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
     "vendor/vedic-upstream/COMMERCIAL_NOTICE": "9d98134c60234dafadc5445fd5647c915398011a79d371451d92edf0a6178cb4",
     "vendor/vedic-upstream/LICENSE": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
     "vendor/vedic-upstream/codex-patch/AGENTS.md": "60145e23883e1bb8fad9b21dc4276068515d29beccde95c9868948148dc37dd2",
