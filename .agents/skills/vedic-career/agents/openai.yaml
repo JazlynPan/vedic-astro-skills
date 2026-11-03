@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vedic Career Analysis"
+  short_description: "Analyze career direction and timing from a Vedic chart"
+  default_prompt: "Use $vedic-career to analyze career direction and timing from my chart."

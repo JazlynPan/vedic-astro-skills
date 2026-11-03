@@ -1,108 +1,34 @@
-# 🔱 Vedic Astro Skills
+# Vedic Astro Skills：Codex Cloud 台灣設定
 
-> AI-powered Vedic astrology analysis toolkit. Three specialized skills working together.
->
-> 吠陀占星AI分析工具包。三个专业技能协同工作。
+以官方 [CNWU16/vedic-astro-skills](https://github.com/CNWU16/vedic-astro-skills) 最新版為基準的完整 Codex 安裝。舊版三模組、Claude commands 與舊報告工具已移除。
 
-Works with **Antigravity** and **Claude Code**.
+## 安裝內容
 
----
+官方 Suite v8.0 的八個 Skills 位於 `.agents/skills/`：
 
-## Skills Overview | 技能概览
+- `vedic-calculator`：原生排盤計算。
+- `vedic-reader`：PDF／圖片讀盤與資料核對。
+- `vedic-core`：完整本命分析。
+- `vedic-career`：職涯分析。
+- `vedic-love`：感情分析。
+- `vedic-rectifier`：出生時間校正。
+- `vedic-synastry`：雙人合盤。
+- `vedic-prashna`：問事盤。
 
-| Skill | Purpose | Trigger |
-|-------|---------|---------|
-| 🏛️ **core** | P1-P13 行星审计引擎 + 验前事校验 | "星盘审计"、"行星分析"、"完整分析" |
-| 💼 **career** | 职业方向 + 事业时机 | "职业分析"、"事业方向"、"10宫" |
-| 💘 **love** | 恋爱时机 + 感情分析 | "恋爱运势"、"桃花时机"、"感情分析" |
+完整腳本、資源、agents 設定、測試與 Swiss Ephemeris 星曆檔均保留。Codex Patch v1.3.0 的十一個模組位於 `.codex/`，原始補丁與授權另存於 `vendor/vedic-upstream/`。根目錄 `AGENTS.md` 整合官方路由及台灣在地化規則。
 
-### Architecture | 架构
+## 雲端使用
 
-```
-vedic-core (核心引擎)
-├── 数据提取 + 验前事校验
-├── P1-P13 行星审计
-├── D9 校准
-└── 宫位诊断函数
-      │
-      ├──→ vedic-career (事业层)
-      └──→ vedic-love (感情层)
-```
+新任務以本倉庫為工作目錄，先執行 `bash scripts/codex_setup.sh`，之後使用 `.agents/skills/vedic-calculator/venv/bin/python`。Python 支援範圍為 3.8–3.13，目前驗證 Linux Python 3.12.14；虛擬環境可重建，不提交 Git。
 
-**core** runs first to establish the foundation. **career** and **love** can run standalone (fast mode) or inherit core's audit data (deep mode).
+Skills 與專案指令隨倉庫保存；未設定平台層級自動安裝 hook。完整版本、更新方式、測試與限制見 [安裝紀錄](docs/CODEX_CLOUD_TW.md)，來源鎖定與雜湊見 `vedic-upstream.lock.json`。
 
----
+## 語言與個資
 
-## Installation | 安装
+使用台灣繁體中文，專業詞彙首次出現附中文與原文；核對台北／上海歷史夏令時間，先評估出生時間與分盤穩定性，再進行獨立分析及事件驗證。占星是傳統詮釋框架，不作為已證實的科學事實。
 
-### Antigravity
+個人出生資料、命盤、事件與報告只放在不追蹤的 `private/`，不得提交到公開倉庫。
 
-```bash
-# Install all three
-cp core/SKILL.md ~/.gemini/antigravity/skills/vedic-core/SKILL.md
-cp career/SKILL.md ~/.gemini/antigravity/skills/vedic-career/SKILL.md
-cp love/SKILL.md ~/.gemini/antigravity/skills/vedic-love/SKILL.md
-```
+## 授權
 
-Or install only what you need.
-
-### Claude Code
-
-```bash
-cp claude-code/.claude/commands/*.md .claude/commands/
-```
-
-Commands: `/vedic-core`, `/vedic-career`, `/vedic-love`
-
----
-
-## ⚡ How to Use | 使用指南
-
-### 🟢 推荐流程 (Recommended): 先Core再专项
-
-> **Step 1** → 发送星盘PDF，说 **"帮我做完整星盘审计"**
-> 
-> AI 自动运行 `vedic-core`：提取数据 → 验前事校验 → P1-P13行星审计 → D9校准
->
-> **Step 2** → 审计完成后，说 **"分析事业方向"** 或 **"分析恋爱运势"**
->
-> AI 自动调用 `vedic-career` 或 `vedic-love`，继承Step 1的审计数据
-
-```
-星盘PDF → vedic-core(验前事 + P1-P13) → vedic-career 或 vedic-love
-```
-
-### 🟡 快速模式 (Quick): 直接分析
-
-不想跑Core？也可以直接说 **"分析事业方向"** 或 **"分析恋爱运势"**，career/love会独立运行简化分析。但精度不如先跑Core。
-
-### 输入要求 | Input
-
-- Jagannatha Hora exported PDF (至少前2页)
-- Or birth chart screenshots
-- Python + PyMuPDF (`pip install pymupdf`) for PDF extraction
-
----
-
-## Project Structure | 项目结构
-
-```
-vedic-astro-skills/
-├── README.md
-├── LICENSE
-├── core/
-│   └── SKILL.md          # 核心引擎 (P1-P13 + 验前事)
-├── career/
-│   └── SKILL.md          # 职业分析
-├── love/
-│   └── SKILL.md          # 恋爱时机
-└── claude-code/
-    └── .claude/commands/
-        ├── vedic-core.md
-        ├── vedic-career.md
-        └── vedic-love.md
-```
-
-## License
-
-MIT
+官方內容依 [AGPL-3.0](LICENSE) 及額外 [COMMERCIAL_NOTICE](COMMERCIAL_NOTICE) 適用，保留官方歸屬；不得將本版本描述為舊版 MIT 發行。官方 prompt 與 resources 的商用使用須遵循其額外條款。

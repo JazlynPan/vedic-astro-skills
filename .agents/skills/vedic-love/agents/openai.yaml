@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vedic Love Timing"
+  short_description: "Analyze relationship patterns and timing from a Vedic chart"
+  default_prompt: "Use $vedic-love to analyze relationship patterns and timing from my chart."

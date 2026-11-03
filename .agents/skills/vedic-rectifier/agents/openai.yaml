@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vedic Birth Time Rectifier"
+  short_description: "Rectify birth time from life events and chart timing"
+  default_prompt: "Use $vedic-rectifier to refine my birth time from major life events."
